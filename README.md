@@ -1,1 +1,1 @@
-# household-inventory-quarkus
+# household-inventory
