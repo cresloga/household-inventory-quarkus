@@ -23,38 +23,38 @@ import com.cresloga.inventory.household.householdinventory.models.dto.GetAllResp
 import com.cresloga.inventory.household.householdinventory.models.dto.GetResponse;
 import com.cresloga.inventory.household.householdinventory.models.dto.Item;
 
-@Path(value = "/quarkus")
+@Path(value = "/v2")
 @Tag(name="Groceries")
 public interface GroceryV1Api {
 
-	@Path(value = "/v2/groceries")
+	@Path(value = "/groceries")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@POST
 	void createV1(Item body);
 
-	@Path(value = "/v2/groceries/{id}")
+	@Path(value = "/groceries/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@DELETE
 	void deleteByIdV1(@PathParam("id") Long id);
 
-	@Path(value = "/v2/groceries")
+	@Path(value = "/groceries")
 	@Produces(MediaType.APPLICATION_JSON)
 	@GET
 	GetAllResponse getAllV1();
 
-	@Path(value = "/v2/groceries/{id}")
+	@Path(value = "/groceries/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@GET
 	GetResponse getByIdV1(@PathParam("id") Long id);
 
-	@Path(value = "/v2/groceries/{id}")
+	@Path(value = "/groceries/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@PUT
 	void replaceByIdV1(@PathParam("id") Long id, Item body);
 
-	@Path(value = "/v2/groceries/{id}/quantity/{quantity}")
+	@Path(value = "/groceries/{id}/quantity/{quantity}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@PATCH
 	void updateByIdV1(@PathParam("id") Long id, @PathParam("quantity") BigDecimal quantity);
