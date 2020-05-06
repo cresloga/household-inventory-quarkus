@@ -57,7 +57,7 @@ public class GroceryService {
 	}
 
 	@Transactional
-	public void create(Item item) {
+	public Long create(Item item) {
 		GroceryItem groceryItem = new GroceryItem();
 		try {
 			BeanUtils.copyProperties(groceryItem, item);
@@ -65,6 +65,7 @@ public class GroceryService {
 			log.error("Exception copying properties from dto to entity: {}", e);
 		}
 		repository.persist(groceryItem);
+		return groceryItem.getId();
 	}
 
 	@Transactional

@@ -16,6 +16,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
@@ -31,32 +32,32 @@ public interface GroceryV1Api {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@POST
-	void createV1(Item body);
+	Response createV1(Item body);
 
 	@Path(value = "/groceries/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@DELETE
-	void deleteByIdV1(@PathParam("id") Long id);
+	Response deleteByIdV1(@PathParam("id") Long id);
 
 	@Path(value = "/groceries")
 	@Produces(MediaType.APPLICATION_JSON)
 	@GET
-	GetAllResponse getAllV1();
+	Response getAllV1();
 
 	@Path(value = "/groceries/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@GET
-	GetResponse getByIdV1(@PathParam("id") Long id);
+	Response getByIdV1(@PathParam("id") Long id);
 
 	@Path(value = "/groceries/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@PUT
-	void replaceByIdV1(@PathParam("id") Long id, Item body);
+	Response replaceByIdV1(@PathParam("id") Long id, Item body);
 
 	@Path(value = "/groceries/{id}/quantity/{quantity}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@PATCH
-	void updateByIdV1(@PathParam("id") Long id, @PathParam("quantity") BigDecimal quantity);
+	Response updateByIdV1(@PathParam("id") Long id, @PathParam("quantity") BigDecimal quantity);
 
 }
