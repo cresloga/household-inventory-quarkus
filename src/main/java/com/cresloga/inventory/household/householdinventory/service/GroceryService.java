@@ -25,7 +25,7 @@ public class GroceryService {
 	private static final Logger log = LoggerFactory.getLogger(GroceryService.class);
 
 	@Inject
-	private GroceryItemRepository repository;
+	GroceryItemRepository repository;
 	
 	public Items getAll() {
 		Items items = new Items();
