@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: household-inventory-deployment
+  name: household-inventory-quarkus-deployment
 spec:
   replicas: 2
   selector:
@@ -21,7 +21,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: household-inventory-lb
+  name: household-inventory-quarkus-lb
 spec:
   selector:
     app: household-inventory-quarkus
