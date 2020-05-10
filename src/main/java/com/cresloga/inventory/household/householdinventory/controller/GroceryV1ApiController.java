@@ -25,7 +25,7 @@ public class GroceryV1ApiController implements GroceryV1Api {
 	private static final Logger log = LoggerFactory.getLogger(GroceryV1ApiController.class);
 
 	@Inject
-	private GroceryService service;
+	GroceryService service;
 
 	@Context
 	UriInfo info;

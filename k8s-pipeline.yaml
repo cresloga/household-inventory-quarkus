@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: household-inventory-deployment
+  name: household-inventory-quarkus-deployment
 spec:
   replicas: 2
   selector:
@@ -15,13 +15,29 @@ spec:
       containers:
       - name: household-inventory-quarkus
         image: GET_CONTAINER_IMAGE_AT_RUNTIME
+        env:
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: db-secrets
+              key: username
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-secrets
+              key: password
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:
+              name: db-secrets
+              key: dbHost
         ports:
         - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: household-inventory-lb
+  name: household-inventory-quarkus-lb
 spec:
   selector:
     app: household-inventory-quarkus

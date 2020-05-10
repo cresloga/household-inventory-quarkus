@@ -10,15 +10,6 @@ info:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 
-servers: 
-# Added by API Auto Mocking Plugin
-  - description: Local Testing
-    url: http://localhost:8080
-  - url: host-dev/household-inventory
-    description: Dev environment
-  - url: host-prod/household-inventory
-    description: PROD environment
-
 
 tags:
 - name: "Groceries"
